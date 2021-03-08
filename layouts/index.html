@@ -1,0 +1,22 @@
+{{ define "styles" }}
+    {{ $.Scratch.Set "style_opts" (dict "src" "scss/pages/about.scss" "dest" "css/about.css") }}
+{{ end }}
+
+{{ define "main" }}
+
+<div class="splash-container">
+  <div class="splash">
+
+    <h1>{{ .Params.heading1 }}<span style="color: crimson"> | </span>{{ .Params.heading2 }}</h1>
+    {{ if isset .Params "handle" }}
+    <span class="handle">@{{ .Params.handle }}</span>
+    {{ end }}
+    <h2>
+      {{ .Params.subheading }}
+    </h2>
+    <p style="color: grey">- {{ .Params.author }}</p>
+    <span class="home__social">{{ partial "social-icons.html" .}}</span>
+  </div>
+</div>
+
+{{ end }}
